@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Практика</title>
+
+    <link rel="icon" type="image/png" href="img/working-o-icon.png">
+
+    <!-- Подключение EEL-->
+    <script src="eel.js"></script>
+
+    <!-- Подключение ядра bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-2 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-12 col-xl-7">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-header text-center">
+                        <h5>Working on...</h5>
+                    </div>
+                    <div class="card-body text-center">
+                        <form action="">
+
+                            <div class="row align-items-center pt-4 pb-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0">Ключ</h6>
+                                </div>
+                                <div class="col-md-9 pe-5">
+                                    <input type="text" class="form-control form-control-lg" id="key">
+                                </div>
+                            </div>
+                            <hr class="mx-n3">
+
+                            <div class="row align-items-center pt-4 pb-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0">Путь к папке</h6>
+                                </div>
+                                <div class="col-md-9 pe-5">
+                                    <input type="text" class="form-control form-control-lg" id="folderWay">
+                                </div>
+                            </div>
+                            <hr class="mx-n3">
+
+                            <hr class="mx-n3">
+
+                            <div class="row align-items-center py-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0">Список аккаунтов для загрузки</h6>
+                                </div>
+                                <div class="col-md-9 pe-5">
+                                    <input class="form-control form-control-lg" id="formFileLg" type="file">
+                                    <div class="small text-muted mt-2">Каждый аккаунт должен начинаться с новой строчки
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="mx-n3">
+
+                            <div class="px-5 py-4">
+                                <button type="submit" class="btn btn-dark btn-lg" id="upload">Загрузить
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    let upload = document.querySelector("#upload");
+    upload.addEventListener("click", practice);
+
+    async function practice() {
+        let myKey = document.querySelector("#key").value;
+        let myFolderWay = document.querySelector("#folderWay").value;
+
+        await eel.recv_data(myKey, myKey);
+    }
+</script>
+</body>
+</html>
