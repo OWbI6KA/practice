@@ -47,6 +47,25 @@
                                 </div>
                             </div>
                             <hr class="mx-n3">
+                            <div class="row align-items-center pt-4 pb-3">
+                                <div class="col-md-3 ps-5">
+                                    <h6 class="mb-0"> Период от</h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="md-form md-outline input-with-post-icon datepicker">
+                                        <input placeholder="Select date" type="date" id="dataFrom" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <h6 class="mb-0"> до </h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="md-form md-outline input-with-post-icon datepicker">
+                                        <input placeholder="Select date" type="date" id="dataTo" class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
 
                             <hr class="mx-n3">
 
@@ -81,9 +100,12 @@
     async function practice() {
         let myKey = document.querySelector("#key").value;
         let myFolderWay = document.querySelector("#folderWay").value;
+        let myDataFrom = document.querySelector("#dataFrom").value;
+        let myDataTo = document.querySelector("#dataTo").value;
 
-        await eel.recv_data(myKey, myKey);
+        await eel.recv_data(myKey, myFolderWay, myDataFrom, myDataTo);
     }
 </script>
+
 </body>
 </html>
