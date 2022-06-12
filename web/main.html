@@ -53,15 +53,6 @@
 
                         <div class="row align-items-center pt-2 pb-1">
                             <div class="col-md-3 ps-5">
-                                <h6 class="mb-0">Путь к папке</h6>
-                            </div>
-                            <div class="col-md-9 pe-5">
-                                <input type="text" class="form-control form-control-lg" id="folderWay">
-                            </div>
-                        </div>
-                        <hr class="mx-n3">
-                        <div class="row align-items-center pt-2 pb-1">
-                            <div class="col-md-3 ps-5">
                                 <h6 class="mb-0"> Период от</h6>
                             </div>
                             <div class="col-md-4">
@@ -138,7 +129,7 @@
         let myFile = document.querySelector("#formFileLg").value;
         let myUploadType = document.querySelector("#uploadType").value;
         let myResourceType = document.querySelector("#resourceType").value;
-        await eel.get_info(myTokenYDisk, myTokenZoom, myDataFrom, myDataTo, myFile, myUploadType, myResourceType);
+        await eel.main_script(myTokenYDisk, myTokenZoom, myDataFrom, myDataTo, myFile, myUploadType, myResourceType);
     }
 </script>
 

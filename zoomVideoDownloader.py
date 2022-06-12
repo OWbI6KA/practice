@@ -117,8 +117,6 @@ class ZoomDownloader:
     @staticmethod
     def downloadVideosToFolder(token: str, dateFrom: datetime.date, dateTo: datetime.date,
                                pathToFileWithAccounts: str) -> Status:
-        dateFromStr = dateFrom.isoformat()
-        dateToStr = dateTo.isoformat()
 
         zoomAccounts = ZoomDownloader.getUserAccountsFromZoom(token)
         fileAccounts = ZoomDownloader.getAccountsFromFile(pathToFileWithAccounts)
@@ -126,7 +124,7 @@ class ZoomDownloader:
             return Status.GET_ACCOUNTS_ERROR
         accounts = ZoomDownloader.getFinalAccounts(zoomAccounts, fileAccounts)
 
-        meetings = ZoomDownloader.getMeetingsUrls(accounts, dateFromStr, dateToStr, token)
+        meetings = ZoomDownloader.getMeetingsUrls(accounts, dateFrom, dateTo, token)
         if meetings == Status.GET_MEETINGS_ERROR:
             return Status.GET_MEETINGS_ERROR
 
@@ -138,8 +136,6 @@ class ZoomDownloader:
     @staticmethod
     def uploadVideosToDisk(yandex_token: str, zoom_token: str, dateFrom: datetime.date, dateTo: datetime.date,
                            pathToFileWithAccounts: str) -> Status:
-        dateFromStr = dateFrom.isoformat()
-        dateToStr = dateTo.isoformat()
 
         zoomAccounts = ZoomDownloader.getUserAccountsFromZoom(zoom_token)
         fileAccounts = ZoomDownloader.getAccountsFromFile(pathToFileWithAccounts)
@@ -147,7 +143,7 @@ class ZoomDownloader:
             return Status.GET_ACCOUNTS_ERROR
         accounts = ZoomDownloader.getFinalAccounts(zoomAccounts, fileAccounts)
 
-        meetings = ZoomDownloader.getMeetingsUrls(accounts, dateFromStr, dateToStr, zoom_token)
+        meetings = ZoomDownloader.getMeetingsUrls(accounts, dateFrom, dateTo, zoom_token)
         if meetings == Status.GET_MEETINGS_ERROR:
             return Status.GET_MEETINGS_ERROR
 

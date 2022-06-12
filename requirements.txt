@@ -6,3 +6,4 @@ numpy~=1.22.4
 yadisk~=1.2.15
 requests~=2.27.1
 setuptools~=58.1.0
+wget~=3.2

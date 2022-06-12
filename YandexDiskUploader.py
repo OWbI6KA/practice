@@ -3,8 +3,8 @@ import os
 import yadisk
 import posixpath
 import pandas as pd
-from status import Status
 
+from status import Status
 
 class YandexDiskUploader:
     def __init__(self, token):
