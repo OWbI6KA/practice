@@ -5,6 +5,7 @@ import posixpath
 import pandas as pd
 from status import Status
 
+
 class YandexDiskUploader:
     def __init__(self, token):
         self.disk = yadisk.YaDisk(token=token)
@@ -15,7 +16,7 @@ class YandexDiskUploader:
     def getPathByString(self, string: str, startTime: str = None):
         words = string.split('_')
         path = 'disk:/'
-        for i in range(len(words)-1):
+        for i in range(len(words) - 1):
             path = posixpath.join(path, words[i])
             if path not in self.confirmationFolders:
                 try:

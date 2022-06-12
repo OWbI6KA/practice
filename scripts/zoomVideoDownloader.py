@@ -28,7 +28,7 @@ class ZoomDownloader:
 
     @staticmethod
     def getHeaders(token: str) -> dict:
-        return {'content-type': 'application/json', 'authorization' : f'Bearer {token}'}
+        return {'content-type': 'application/json', 'authorization': f'Bearer {token}'}
 
     @staticmethod
     def getUserAccountsFromZoom(token: str):
@@ -68,15 +68,18 @@ class ZoomDownloader:
                 for meeting in jsonDict['meetings']:
                     if meeting['recording_count'] == 0 and meeting['total_size'] < 41943040:
                         continue
-                    vec = np.vectorize(lambda x: Recording.Recording(meeting['topic'], x['download_url']+ f'?access_token={token}', user.name, x['recording_type'], x['recording_start']))
-                    meeting['recording_files'] = list(filter(lambda x: x['file_type'] == 'MP4' and x['recording_type'] == 'shared_screen_with_speaker_view', meeting['recording_files']))
+                    vec = np.vectorize(
+                        lambda x: Recording.Recording(meeting['topic'], x['download_url'] + f'?access_token={token}',
+                                                      user.name, x['recording_type'], x['recording_start']))
+                    meeting['recording_files'] = list(filter(
+                        lambda x: x['file_type'] == 'MP4' and x['recording_type'] == 'shared_screen_with_speaker_view',
+                        meeting['recording_files']))
                     if len(meeting['recording_files']) != 0:
                         meetingsUrls.extend(vec(meeting['recording_files']).tolist())
             except:
                 continue
 
         return meetingsUrls
-
 
     @staticmethod
     def downloadMeeting(isCorrect, i, filename: str, url: str, token: str):
@@ -111,9 +114,9 @@ class ZoomDownloader:
             t.join()
         return isCorrect
 
-
     @staticmethod
-    def downloadVideosToFolder(token: str, dateFrom: datetime.date, dateTo: datetime.date, pathToFileWithAccounts: str) -> Status:
+    def downloadVideosToFolder(token: str, dateFrom: datetime.date, dateTo: datetime.date,
+                               pathToFileWithAccounts: str) -> Status:
         dateFromStr = dateFrom.isoformat()
         dateToStr = dateTo.isoformat()
 
@@ -122,7 +125,7 @@ class ZoomDownloader:
         if zoomAccounts == Status.GET_ACCOUNTS_ERROR or fileAccounts == Status.GET_ACCOUNTS_ERROR:
             return Status.GET_ACCOUNTS_ERROR
         accounts = ZoomDownloader.getFinalAccounts(zoomAccounts, fileAccounts)
-        
+
         meetings = ZoomDownloader.getMeetingsUrls(accounts, dateFromStr, dateToStr, token)
         if meetings == Status.GET_MEETINGS_ERROR:
             return Status.GET_MEETINGS_ERROR
@@ -134,7 +137,7 @@ class ZoomDownloader:
 
     @staticmethod
     def uploadVideosToDisk(yandex_token: str, zoom_token: str, dateFrom: datetime.date, dateTo: datetime.date,
-                               pathToFileWithAccounts: str) -> Status:
+                           pathToFileWithAccounts: str) -> Status:
         dateFromStr = dateFrom.isoformat()
         dateToStr = dateTo.isoformat()
 
