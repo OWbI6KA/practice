@@ -23,69 +23,99 @@
             <div class="col-md-12 col-xl-7">
                 <div class="card" style="border-radius: 15px;">
                     <div class="card-header text-center">
-                        <h5>Working on...</h5>
+                        <h5>Work in progress...</h5>
                     </div>
                     <div class="card-body text-center">
-                        <form action="">
 
-                            <div class="row align-items-center pt-4 pb-3">
-                                <div class="col-md-3 ps-5">
-                                    <h6 class="mb-0">Ключ</h6>
-                                </div>
-                                <div class="col-md-9 pe-5">
-                                    <input type="text" class="form-control form-control-lg" id="key">
+
+                        <div class="row align-items-center pt-2 pb-1" id="resources">
+                            <div class="col-md-4"></div>
+                            <div class="form-check col-md-1">
+                                <input id="zoom" name="recourceType" type="radio" class="form-check-input"
+                                       required="">
+                                <label class="form-check-label" for="zoom">Zoom</label>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="form-check col-md-1">
+                                <input id="webinar" name="recourceType" type="radio" class="form-check-input"
+                                       required="">
+                                <label class="form-check-label" for="webinar">Webinar</label>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                        <hr class="mx-n3">
+
+                        <div class="row align-items-center pt-2 pb-1">
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0">Яндекс Диск</h6>
+                            </div>
+                            <div class="col-md-9 pe-5">
+                                <input type="text" class="form-control form-control-lg" id="tokenYDisk">
+                                <div class="small text-muted mt-2">(Введите токен Яндекс Диска)
                                 </div>
                             </div>
-                            <hr class="mx-n3">
+                        </div>
+                        <hr class="mx-n3">
 
-                            <div class="row align-items-center pt-4 pb-3">
-                                <div class="col-md-3 ps-5">
-                                    <h6 class="mb-0">Путь к папке</h6>
-                                </div>
-                                <div class="col-md-9 pe-5">
-                                    <input type="text" class="form-control form-control-lg" id="folderWay">
+                        <div class="row align-items-center pt-2 pb-1">
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0">Zoom</h6>
+                            </div>
+                            <div class="col-md-9 pe-5">
+                                <input type="text" class="form-control form-control-lg" id="tokenZoom">
+                                <div class="small text-muted mt-2">(Введите токен Zoom)
                                 </div>
                             </div>
-                            <hr class="mx-n3">
-                            <div class="row align-items-center pt-4 pb-3">
-                                <div class="col-md-3 ps-5">
-                                    <h6 class="mb-0"> Период от</h6>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="md-form md-outline input-with-post-icon datepicker">
-                                        <input placeholder="Select date" type="date" id="dataFrom" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-1">
-                                    <h6 class="mb-0"> до </h6>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="md-form md-outline input-with-post-icon datepicker">
-                                        <input placeholder="Select date" type="date" id="dataTo" class="form-control">
-                                    </div>
-                                </div>
+                        </div>
+                        <hr class="mx-n3">
 
+                        <div class="row align-items-center pt-2 pb-1">
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0">Путь к папке</h6>
                             </div>
-
-                            <hr class="mx-n3">
-
-                            <div class="row align-items-center py-3">
-                                <div class="col-md-3 ps-5">
-                                    <h6 class="mb-0">Список аккаунтов для загрузки</h6>
-                                </div>
-                                <div class="col-md-9 pe-5">
-                                    <input class="form-control form-control-lg" id="formFileLg" type="file">
-                                    <div class="small text-muted mt-2">Каждый аккаунт должен начинаться с новой строчки
-                                    </div>
+                            <div class="col-md-9 pe-5">
+                                <input type="text" class="form-control form-control-lg" id="folderWay">
+                            </div>
+                        </div>
+                        <hr class="mx-n3">
+                        <div class="row align-items-center pt-2 pb-1">
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0"> Период от</h6>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="md-form md-outline input-with-post-icon datepicker">
+                                    <input placeholder="Select date" type="date" id="dataFrom" class="form-control">
                                 </div>
                             </div>
-                            <hr class="mx-n3">
-
-                            <div class="px-5 py-4">
-                                <button type="submit" class="btn btn-dark btn-lg" id="upload">Загрузить
-                                </button>
+                            <div class="col-md-1">
+                                <h6 class="mb-0"> до </h6>
                             </div>
-                        </form>
+                            <div class="col-md-4">
+                                <div class="md-form md-outline input-with-post-icon datepicker">
+                                    <input placeholder="Select date" type="date" id="dataTo" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr class="mx-n3">
+
+                        <div class="row align-items-center pt-2 pb-1">
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0">Список аккаунтов для загрузки</h6>
+                            </div>
+                            <div class="col-md-9 pe-5">
+                                <input class="form-control form-control-lg" id="formFileLg" type="file">
+                                <div class="small text-muted mt-2">Каждый аккаунт должен начинаться с новой строчки
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mx-n3">
+
+                        <div class="px-5 py-2">
+                            <button type="submit" class="btn btn-dark btn-lg" id="upload">Загрузить
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,12 +128,13 @@
     upload.addEventListener("click", practice);
 
     async function practice() {
-        let myKey = document.querySelector("#key").value;
-        let myFolderWay = document.querySelector("#folderWay").value;
+        let myTokenYDisk = document.querySelector("#tokenYDisk").value;
+        let myTokenZoom = document.querySelector("#tokenZoom").value;
         let myDataFrom = document.querySelector("#dataFrom").value;
         let myDataTo = document.querySelector("#dataTo").value;
+        let myFile = document.querySelector("#formFileLg").value;
 
-        await eel.recv_data(myKey, myFolderWay, myDataFrom, myDataTo);
+        await eel.get_info(myTokenYDisk, myTokenZoom, myDataFrom, myDataTo, myFile);
     }
 </script>
 
