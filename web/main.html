@@ -110,6 +110,9 @@
                             <button type="submit" class="btn btn-dark btn-lg" id="upload">Загрузить
                             </button>
                         </div>
+                        <div>
+                            <textarea class="form-control" rows=20 cols=40 id="ms_word_filtered_html"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,8 +121,15 @@
 </section>
 
 <script>
+    
     let upload = document.querySelector("#upload");
     upload.addEventListener("click", practice);
+
+    const fileElement = document.getElementById("formFileLg");
+    fileElement.addEventListener("change", handleFiles, false);
+    function handleFiles () {
+        document.getElementById("formFileLg").files[0].text().then(result => document.getElementById("ms_word_filtered_html").value = result, error => document.getElementById("ms_word_filtered_html").value = error.toString());
+    }
 
     async function practice() {
         let myTokenYDisk = document.querySelector("#tokenYDisk").value;
