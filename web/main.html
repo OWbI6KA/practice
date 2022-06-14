@@ -121,14 +121,15 @@
 </section>
 
 <script>
-    
+
     let upload = document.querySelector("#upload");
     upload.addEventListener("click", practice);
 
     const fileElement = document.getElementById("formFileLg");
     fileElement.addEventListener("change", handleFiles, false);
-    function handleFiles () {
-        document.getElementById("formFileLg").files[0].text().then(result => document.getElementById("ms_word_filtered_html").value = result, error => document.getElementById("ms_word_filtered_html").value = error.toString());
+
+    function handleFiles() {
+        document.getElementById("formFileLg").files[0].text().then(result => fileText = result, error => fileText = error.toString());
     }
 
     async function practice() {
@@ -139,7 +140,8 @@
         let myFile = document.querySelector("#formFileLg").value;
         let myUploadType = document.querySelector("#uploadType").value;
         let myResourceType = document.querySelector("#resourceType").value;
-        await eel.main_script(myTokenYDisk, myTokenZoom, myDataFrom, myDataTo, myFile, myUploadType, myResourceType);
+
+        await eel.main_script(myTokenYDisk, myTokenZoom, myDataFrom, myDataTo, fileText, myUploadType, myResourceType);
     }
 </script>
 

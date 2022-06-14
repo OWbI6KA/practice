@@ -8,3 +8,36 @@ svetlana.popova@hse.ru;;;;;;
 ;;;;;;
 vetrovd@yandex.ru;;;;;;
 sokolov.evg@gmail.com;;;;;;
+
+
+    // function readFiles(e) {
+    //     const file = e.target.files[0];
+    //
+    //     const name = file.name ? file.name : 'NOT SUPPORTED';
+    //     const type = file.type ? file.type : 'NOT SUPPORTED';
+    //     const size = file.size ? file.size : 'NOT SUPPORTED';
+    //
+    //     let r = {name, type, size};
+    //
+    //     console.log(r);
+    //
+    //     const reader = new FileReader();
+    //     reader.addEventListener('load', event => {
+    //         let content = event.target.result;
+    //         let rows = content.split('\r\n');
+    //
+    //         console.log(rows);
+    //     });
+    //     reader.readAsText(file);
+    // }
+
+    var openFile = function (event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function () {
+            var text = reader.result;
+            console.log(reader.result.substring(0, 200));
+        };
+        reader.readAsText(input.files[0]);
+    }

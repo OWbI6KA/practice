@@ -20,6 +20,7 @@ def get_path(file):
 
 @eel.expose
 def main_script(tokenYDisk, tokenZoom, dataFrom, dataTo, file, uploadType, resourceType):
+    print(file)
     if resourceType == "zoom":
         if uploadType == "typeLinks":
             print(zoomVideoDownloader.ZoomDownloader.downloadVideosToFolder(tokenZoom, dateFrom=dataFrom, dateTo=dataTo,
