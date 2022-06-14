@@ -48,8 +48,11 @@ class ZoomDownloader:
 
     @staticmethod
     def getAccountsFromFile(fileName: str):
+        file = open(fileName, 'r')
         try:
-            return set(map(lambda x: x.strip(';'), pd.read_csv(fileName).iloc[:, 0].to_numpy()))
+            temp = set(map(lambda x: x.strip(';'), pd.read_csv(file).iloc[:, 0].to_numpy()))
+            temp.discard('')
+            return temp
         except:
             return Status.GET_ACCOUNTS_ERROR
 
